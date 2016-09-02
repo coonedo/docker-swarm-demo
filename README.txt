@@ -12,7 +12,13 @@ Note: 	This demo is a very basic introduction to the topic named above created
 Docker-swarm_demo Summary:
 --------------------------
 
-1. 	
+1. 	SET UP 3 NODES (MANAGER, AGENT1, AGENT2)
+2.	INSTALL SWARM ON THE MANAGER NODE
+3.	SET UP A DISCOVERY SERVICE  CONSUL. OTHER OPTIONS: ZOOKEEPER, ETCD)
+4.	RUN THE SWARM MANAGER
+5.	ON OUR 2 AGENTS, RUN SWARM JOIN TO LET THEM JOIN THE CLUSTER
+6.	CHECK CLUSTER STATUS
+
 
 
 
@@ -57,7 +63,7 @@ Instructions:
 
 
 
-	get clone XXXXXXXXXXXXXXXXXXX
+	get clone https://github.com/coonedo/docker-swarm-demo
 
 	C:\Users\coonedo\docker_swarm_project>vagrant up manager
 
@@ -70,6 +76,9 @@ Instructions:
 
 
 	INSTALL SWARM ON THE MANAGER NODE
+
+
+	ssh to manager node (vagrant ssh manager)
 
 
 vagrant@manager:~$ docker run swarm --help
@@ -160,6 +169,7 @@ vagrant@manager:~$ docker run -d -p 4000:4000 swarm manage -H :4000
 
 	ON OUR 2 AGENTS, RUN SWARM JOIN TO LET THEM JOIN THE CLUSTER
 
+	vagrant ssh agent1A
 	
 vagrant@docker-agent1:~$ docker run -d swarm join --advertise=192.168.0.246:237
 5 consul://192.168.0.248:8500
@@ -175,6 +185,8 @@ Status: Downloaded newer image for swarm:latest
 vagrant@docker-agent1:~$
 
 
+
+	vagrant ssh agent2
 
 vagrant@docker-agent2:~$ docker run -d swarm join --advertise=192.168.0.247:237
 5 consul://192.168.0.248:8500
