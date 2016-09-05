@@ -4,3 +4,5 @@
 2.1	Need an overlay network to have server / db communicating
 2.2	Create a script to try to automate (vagrant? other?) the provisioning
 	& setup
+3.	Docker swarm on the cloud. 
+	https://docs.docker.com/swarm/install-manual/
