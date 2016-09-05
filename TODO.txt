@@ -1,0 +1,6 @@
+1. 	Check Docker swarm & compose integration
+2.	Setup & run the nodejs/mySql example in a docker swarm cluster
+	(https://github.com/coonedo/docker-demo Docker_Compose_README.txt)
+2.1	Need an overlay network to have server / db communicating
+2.2	Create a script to try to automate (vagrant? other?) the provisioning
+	& setup
